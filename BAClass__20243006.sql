@@ -219,4 +219,6 @@ FROM class.most_streamed_spotify_songs
 WHERE Track LIKE '%A' 
 AND Track IN (SELECT Track FROM class.most_streamed_spotify_songs WHERE All_Time_Rank < 1000);
 
-
+# 2024ew
+select * from class.most_streamed_spotify_songs
+where All_Time_Rank >= 15;
