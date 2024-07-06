@@ -222,3 +222,36 @@ AND Track IN (SELECT Track FROM class.most_streamed_spotify_songs WHERE All_Time
 # 2024ew
 select * from class.most_streamed_spotify_songs
 where All_Time_Rank >= 15;
+
+# JOINS
+# Inner Join
+Select * from ba_class.todays_class
+Inner Join ba_class.todays_classe
+on todays_class.student_id = todays_classe.student_id;
+
+select * from ba_class.bank_sec;
+
+select age from ba_class.bank_sec;
+ # Autoincremenet
+ALTER TABLE ba_class.bank_full
+ADD COLUMN R_ID INT AUTO_INCREMENT,
+ADD PRIMARY KEY (R_ID);
+# Inner Join
+SELECT *
+FROM ba_class.bank_sec AS new_table
+Left JOIN ba_class.bank_full ON new_table.R_ID = bank_full.R_ID
+Where new_table.balance > 1000 AND bank_full.balance > 1000;
+
+# Outer Join
+SELECT education, Count(job) as Num_of_job
+FROM ba_class.bank_sec AS new_table
+Where new_table.balance > 1000
+Group by education;
+
+SELECT self_bank.education, self_bank.balance
+FROM ba_class.self_bank
+INNER JOIN ba_class.bank_full ON self_bank.age = bank_full.age AND self_bank.job = bank_full.job;
+
+#5
+SELECT bank_full.job, bank_full.education from ba_class.bank_full
+INNER JOIN ba_class.self_bank ON bank_full.job = self_bank.job AND bank_full.marital <> self_bank.marital;
